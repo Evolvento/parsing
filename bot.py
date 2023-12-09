@@ -7,7 +7,7 @@ class Bot:
     dao = DataAccessObject()
 
     def __init__(self):
-        self.bot = telebot.TeleBot('6626234697:AAE8PE28JcQcSpZQeDkHIKznngTJR-VvppE')
+        self.bot = telebot.TeleBot('token')
 
         @self.bot.message_handler(commands=['start'])
         def start(message):
