@@ -26,7 +26,6 @@ class DataAccessObject:
             )
         ''')
         self.connection.commit()
-        self.update()
 
     def create_card(self, href, name, brand, price, discount, discount_price, photo):
         self.dao.execute(
@@ -52,7 +51,7 @@ class DataAccessObject:
 
     def update(self):
         #self.page_count()
-        for count in range(1, 1):
+        for count in range(1, 1 + 1):
             response = requests.get(f"https://www.lamoda.ru/c/4153/default-women/?is_new=1&sitelink=topmenuW&l=2&is_sale=1&page={count}")
             if response.status_code == 200:
                 soup = BeautifulSoup(response.text, "lxml")
