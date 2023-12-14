@@ -7,7 +7,7 @@ class Bot:
     dao = DataAccessObject()
 
     def __init__(self):
-        self.bot = telebot.TeleBot('6626234697:AAE8PE28JcQcSpZQeDkHIKznngTJR-VvppE')
+        self.bot = telebot.TeleBot('token')
         #self.dao.update()
         self.cards = self.dao.get_cards()
         self.iterator = 0
