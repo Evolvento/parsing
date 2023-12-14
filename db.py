@@ -33,9 +33,13 @@ class DataAccessObject:
             ' VALUES(?, ?, ?, ?, ?, ?, ?)', (href, name, brand, price, discount, discount_price, photo))
         self.connection.commit()
 
-    def get_discount(self):
-        self.dao.execute('SELECT * FROM OurDataBase ORDER BY discount DESC')
+    def get_cards(self):
+        self.dao.execute('SELECT href FROM OurDataBase ORDER BY discount DESC')
         return self.dao.fetchall()
+
+    def det_discount(self, href):
+        self.dao.execute("SELECT discount FROM OurDataBase WHERE href = ?", href)
+        return self.dao.fetchone()[0]
 
     def page_count(self) -> int:
         url = "https://www.lamoda.ru/c/4153/default-women/?is_new=1&sitelink=topmenuW&l=2&is_sale=1"
@@ -74,4 +78,3 @@ class DataAccessObject:
         result = self.dao.fetchall()
         for row in result:
             print(row)
-
